@@ -25,13 +25,17 @@ function searchName() {
          .then(renderCountry)
     .catch((error) => {
       console.log(error)
+         refs.info.innerHTML = ''
+       refs.list.innerHTML = ''
     });
 }
 
 function renderCountry(country) {
     let variable = ""
     if (country.length > 10) {
-     Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+      Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+      refs.info.innerHTML = ''
+       refs.list.innerHTML = ''
     return;
     }
     else if (country.length > 1) {
